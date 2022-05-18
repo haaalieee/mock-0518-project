@@ -1,24 +1,81 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Loader } from "@react-three/drei";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import City from "./components/City";
+import Rig from "./components/Rig";
+import { CityProvider } from "./context/CityContext";
+import CameraControl from "./utils/CameraControl";
+import Dialog from "./components/Dialog";
+import "./styles.css";
+
+// extend({ OrbitControls });
+
+// const Controls = () => {
+//   const { camera, gl } = useThree();
+//   const ref = useRef();
+//   const { clickedCity } = useCity();
+
+//   useFrame(() => {
+//     ref.current.update();
+
+//     if (clickedCity) {
+//       ref.current.update();
+//     }
+//   });
+//   return (
+//     <orbitControls
+//       ref={ref}
+//       target={[0, 0, 0]}
+//       enableDamping
+//       args={[camera, gl.domElement]}
+//     />
+//   );
+// };
 
 function App() {
+  const [zoom, setZoom] = useState(false);
+  const [focus, setFocus] = useState({});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Canvas
+        linear
+        camera={{ position: [-27, 27, 4], fov: 70 }}
+        shadows={true}
+      >
+        <CityProvider>
+          <color attach="background" args={["#c0dbe9"]} />
+          {/* <fog attach="fog" args={['#fffff', 10, 60]} /> */}
+          <ambientLight intensity={4} />
+          <Suspense fallback={null}>
+            <Rig>
+              <City
+                rotation={[0, 1.56, 0]}
+                scale={[0.8, 0.8, 0.8]}
+                position={[0, -3, 15]}
+              />
+            </Rig>
+          </Suspense>
+          <CameraControl />
+          {/* <Controls /> */}
+          {/* <OrbitControls
+          enablePan={false}
+          enableZoom={true}
+          maxPolarAngle={0.9}
+          minPolarAngle={0.9}
+          enableDamping={true}
+        /> */}
+          {/* 
+          <Dialog
+            text={
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+            }
+            position={[0, 0, 0]}
+          /> */}
+        </CityProvider>
+      </Canvas>
+      <Loader />
+    </>
   );
 }
 
