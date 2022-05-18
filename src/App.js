@@ -1,41 +1,13 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Loader } from "@react-three/drei";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import City from "./components/City";
 import Rig from "./components/Rig";
 import { CityProvider } from "./context/CityContext";
 import CameraControl from "./utils/CameraControl";
-import Dialog from "./components/Dialog";
 import "./styles.css";
 
-// extend({ OrbitControls });
-
-// const Controls = () => {
-//   const { camera, gl } = useThree();
-//   const ref = useRef();
-//   const { clickedCity } = useCity();
-
-//   useFrame(() => {
-//     ref.current.update();
-
-//     if (clickedCity) {
-//       ref.current.update();
-//     }
-//   });
-//   return (
-//     <orbitControls
-//       ref={ref}
-//       target={[0, 0, 0]}
-//       enableDamping
-//       args={[camera, gl.domElement]}
-//     />
-//   );
-// };
-
 function App() {
-  const [zoom, setZoom] = useState(false);
-  const [focus, setFocus] = useState({});
   return (
     <>
       <Canvas
@@ -45,7 +17,6 @@ function App() {
       >
         <CityProvider>
           <color attach="background" args={["#c0dbe9"]} />
-          {/* <fog attach="fog" args={['#fffff', 10, 60]} /> */}
           <ambientLight intensity={4} />
           <Suspense fallback={null}>
             <Rig>
@@ -57,21 +28,6 @@ function App() {
             </Rig>
           </Suspense>
           <CameraControl />
-          {/* <Controls /> */}
-          {/* <OrbitControls
-          enablePan={false}
-          enableZoom={true}
-          maxPolarAngle={0.9}
-          minPolarAngle={0.9}
-          enableDamping={true}
-        /> */}
-          {/* 
-          <Dialog
-            text={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-            }
-            position={[0, 0, 0]}
-          /> */}
         </CityProvider>
       </Canvas>
       <Loader />

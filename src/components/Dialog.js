@@ -3,15 +3,9 @@ import React, {
   useEffect,
   useRef,
   useState,
-  useCallback,
 } from "react";
 import { Html } from "@react-three/drei";
-import { gsap } from "gsap";
-import TextPlugin from "gsap/TextPlugin";
 import { useCity } from "../context/CityContext";
-
-// Force TextPlugin to not get dropped during build
-gsap.registerPlugin(TextPlugin);
 
 const Dialog = forwardRef((props, ref) => {
   // Typing animation in the dialog

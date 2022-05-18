@@ -18,9 +18,6 @@ import MapBubble from "./MapBubble";
 import CityBankCar from "./CityBankCar";
 
 export default function City({ ...props }) {
-  const vec3 = new THREE.Vector3();
-  const { camera } = useThree();
-
   const group = useRef();
   const bubbleBank = useRef();
   const cityPark = useRef();
@@ -29,8 +26,8 @@ export default function City({ ...props }) {
   const { nodes, materials } = useGLTF("/city.gltf");
 
   // Context state provider
-  const { hoverCity, clickedCity } = useCity();
-  const { toggleHoverCity, toggleClickedCity, setObjectPosition } = useCityUpdate();
+  const { hoverCity } = useCity();
+  const { toggleHoverCity } = useCityUpdate();
 
   // Mouse over on park location
   const [hoverPark, setHoverPark] = useState(false);
@@ -49,46 +46,6 @@ export default function City({ ...props }) {
 
   // Ref for bubble rotation in respect to camera
   let cameraPosition = useRef();
-
-  // Camera position animation when city is clicked
-  // const cameraTL = () => {
-  //   gsap
-  //     .timeline()
-  //     .to(camera.position, {
-  //       x: -33,
-  //       y: 29.85,
-  //       z: -16,
-  //     })
-  //     .to(
-  //       camera.rotation,
-  //       {
-  //         x: -2,
-  //         y: -0.7,
-  //         z: -2,
-  //       },
-  //       "<+=50%"
-  //     ).to(
-  //       camera.position,
-  //       {
-  //         x: -20,
-  //         y: 24,
-  //         z: 26,
-  //       },
-  //       "<+=50%"
-  //     ).to(
-  //       camera.rotation,
-  //       {
-  //         x: 8,
-  //         y: -0.7,
-  //         z: -2,
-  //       },
-  //       "<+=50%"
-  //     )
-  // };
-
-  // if (clickedCity) {
-  //   cameraTL();
-  // }
 
   useEffect(() => {
     void (document.body.style.cursor =
