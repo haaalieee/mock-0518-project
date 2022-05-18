@@ -4339,15 +4339,15 @@ export default function City({ ...props }) {
               ref={cityBank}
               onPointerOver={() => toggleHoverCity(true)}
               onPointerOut={() => toggleHoverCity(false)}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleClickedCity();
-                setObjectPosition(
-                  group.current.position.x,
-                  group.current.position.y,
-                  group.current.position.z
-                ); // x: 20, y: 4, z: 8
-              }}
+              // onClick={(e) => {
+              //   e.stopPropagation();
+              //   toggleClickedCity();
+              //   setObjectPosition(
+              //     group.current.position.x,
+              //     group.current.position.y,
+              //     group.current.position.z
+              //   ); // x: 20, y: 4, z: 8
+              // }}
               position-z={floatPosZ}
             >
               <MapBubble
