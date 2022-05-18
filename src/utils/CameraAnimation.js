@@ -5,7 +5,7 @@ import * as THREE from "three";
 const CameraAnimation = (zoom, focus, state, controls) => {
   const pos = new THREE.Vector3();
   const look = new THREE.Vector3();
-  const camPosTarget = new THREE.Vector3(...state.camera.position).add(focus);
+  // const camPosTarget = new THREE.Vector3(...state.camera.position).add(focus);
 
   zoom ? pos.set(focus.x, focus.y, focus.z) : pos.set(-27, 27, 4);
   zoom ? look.set(focus.x, focus.y, focus.z) : look.set(0, 0, 4);

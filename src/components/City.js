@@ -8,10 +8,9 @@ title: Low Poly City
 import * as THREE from "three";
 import React, { useRef, useState, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useSpring } from "@react-spring/core";
 import { a } from "@react-spring/three";
-import gsap from "gsap";
 import { useCity } from "../context/CityContext";
 import { useCityUpdate } from "../context/CityContext";
 import MapBubble from "./MapBubble";
@@ -31,6 +30,8 @@ export default function City({ ...props }) {
 
   // Mouse over on park location
   const [hoverPark, setHoverPark] = useState(false);
+
+  console.log(setHoverPark(false))
 
   // Default spring animation properties
   const [{ z }] = useSpring(
@@ -53,7 +54,7 @@ export default function City({ ...props }) {
   }, [hoverPark, hoverCity]);
 
   useFrame((state) => {
-    const t = state.clock.getElapsedTime();
+    // const t = state.clock.getElapsedTime();
 
     // if (cityClicked) {
     //   camera.updateProjectionMatrix();

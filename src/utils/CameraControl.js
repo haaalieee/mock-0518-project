@@ -4,7 +4,7 @@ import { useFrame, useThree, extend } from "@react-three/fiber";
 import CameraControls from "camera-controls";
 import CameraAnimation from "./CameraAnimation";
 import { useCity } from "../context/CityContext";
-import gsap from "gsap";
+// import gsap from "gsap";
 
 // Custom camera controls instance
 CameraControls.install({ THREE });

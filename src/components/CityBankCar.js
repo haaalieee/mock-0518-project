@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useCityUpdate } from "../context/CityContext";
+// import { useCityUpdate } from "../context/CityContext";
 
 export default function CityBankCar(props) {
   const cityCar = useRef();
@@ -7,8 +7,10 @@ export default function CityBankCar(props) {
   // Mouse over car state
   const [hoverCar, setHoverCar] = useState(false);
 
+  console.log(setHoverCar(false))
+
   // Showing dialog box when clicked
-  const { toggleCarDialog } = useCityUpdate();
+  // const { toggleCarDialog } = useCityUpdate();
 
   // Changing mouse pointer
   useEffect(() => {
