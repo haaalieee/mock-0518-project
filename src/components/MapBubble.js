@@ -10,6 +10,8 @@ const MapBubble = forwardRef((props, ref) => {
   // Context state provider
   const { hoverCity } = useCity();
 
+  console.log("MapBubble")
+
   // Bubble scale animation properties
   const [{ bg }] = useSpring(
     {

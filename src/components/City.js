@@ -6,52 +6,28 @@ source: https://sketchfab.com/3d-models/low-poly-city-4a72d39a88264d02af6dde464b
 title: Low Poly City
 */
 import * as THREE from "three";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useSpring } from "@react-spring/core";
-import { a } from "@react-spring/three";
-import { useCity } from "../context/CityContext";
-import { useCityUpdate } from "../context/CityContext";
-import MapBubble from "./MapBubble";
 import CityBankCar from "./CityBankCar";
+import CityBank from "./CityBank";
 
 export default function City({ ...props }) {
   const group = useRef();
-  const bubbleBank = useRef();
   const cityPark = useRef();
-  const cityBank = useRef();
 
   const { nodes, materials } = useGLTF("/city.gltf");
 
-  // Context state provider
-  const { hoverCity } = useCity();
-  const { toggleHoverCity } = useCityUpdate();
-
   // Mouse over on park location
-  const [hoverPark, setHoverPark] = useState(false);
-
-  console.log(setHoverPark(false))
-
-  // Default spring animation properties
-  const [{ z }] = useSpring(
-    {
-      z: Number(hoverCity),
-      config: { mass: 1, tension: 120, friction: 14, precision: 0.002 },
-    },
-    [hoverCity]
-  );
-
-  // Interpolations
-  const floatPosZ = z.to([0, 1], [0, 2]);
+  // const [hoverPark, setHoverPark] = useState(false);
 
   // Ref for bubble rotation in respect to camera
   let cameraPosition = useRef();
 
-  useEffect(() => {
-    void (document.body.style.cursor =
-      hoverPark || hoverCity ? "pointer" : "auto");
-  }, [hoverPark, hoverCity]);
+  // useEffect(() => {
+  //   void (document.body.style.cursor =
+  //     hoverPark ? "pointer" : "auto");
+  // }, [hoverPark ]);
 
   useFrame((state) => {
     // const t = state.clock.getElapsedTime();
@@ -4293,144 +4269,37 @@ export default function City({ ...props }) {
             scale={100}
           >
             {/*-----------Bank Group--------*/}
-            <a.group
-              ref={cityBank}
-              onPointerOver={() => toggleHoverCity(true)}
-              onPointerOut={() => toggleHoverCity(false)}
-              // onClick={(e) => {
-              //   e.stopPropagation();
-              //   toggleClickedCity();
-              //   setObjectPosition(
-              //     group.current.position.x,
-              //     group.current.position.y,
-              //     group.current.position.z
-              //   ); // x: 20, y: 4, z: 8
-              // }}
-              position-z={floatPosZ}
-            >
-              <MapBubble
-                text="City Bank"
-                ref={bubbleBank}
-                position={[0, 0, 14]}
-                rotation={[Math.PI / 2, Math.PI, 0]}
-              />
-              <group position={[2.05, 1.09, 2.95]}>
-                <mesh
-                  geometry={nodes.colonna_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[-1.9, 1.09, 2.9]}>
-                <mesh
-                  geometry={nodes.colonna001_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[4.53, 1.09, 2.95]}>
-                <mesh
-                  geometry={nodes.colonna002_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[-4.67, 1.09, 2.95]}>
-                <mesh
-                  geometry={nodes.colonna003_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[0.09, -3.63, 2.95]}>
-                <mesh
-                  geometry={nodes.VETRI_FINESTRE_VETRI001_0.geometry}
-                  material={materials["VETRI.001"]}
-                />
-              </group>
-              <group position={[0.09, -3.63, 2.95]}>
-                <mesh
-                  geometry={nodes.VETRI_PORTA_VETRI001_0.geometry}
-                  material={materials["VETRI.001"]}
-                />
-              </group>
-              <group position={[-0.02, 0.53, 6.38]}>
-                <mesh
-                  geometry={nodes.Cube048_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[2.09, 1.81, 6.54]}>
-                <mesh
-                  geometry={nodes.Text002_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[0.51, -0.74, 9.73]}>
-                <mesh
-                  geometry={nodes.Text001_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[5.72, 1.73, 1.85]}>
-                <mesh
-                  geometry={nodes.cespugli006_foglie003_0.geometry}
-                  material={materials["foglie.003"]}
-                />
-              </group>
-              <group position={[5.71, 1.75, 1.34]}>
-                <mesh
-                  geometry={nodes.piante006_vasi003_0.geometry}
-                  material={materials["vasi.003"]}
-                />
-                <mesh
-                  geometry={nodes.piante006_terra003_0.geometry}
-                  material={materials["terra.003"]}
-                />
-              </group>
-              <group position={[-5.53, 1.73, 1.85]}>
-                <mesh
-                  geometry={nodes.cespugli005_foglie003_0.geometry}
-                  material={materials["foglie.003"]}
-                />
-              </group>
-              <group position={[-5.54, 1.75, 1.34]}>
-                <mesh
-                  geometry={nodes.piante005_vasi003_0.geometry}
-                  material={materials["vasi.003"]}
-                />
-                <mesh
-                  geometry={nodes.piante005_terra003_0.geometry}
-                  material={materials["terra.003"]}
-                />
-              </group>
-              <group position={[0.09, -3.63, 3]}>
-                <mesh
-                  geometry={nodes.GRADINI_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[0.09, -3.63, 3]}>
-                <mesh
-                  geometry={nodes.SERRAMENTI_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[0.09, -3.63, 3]}>
-                <mesh
-                  geometry={nodes.struttura_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[-0.18, 0.77, 6.41]}>
-                <mesh
-                  geometry={nodes.TETTOIA_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-              <group position={[0.09, -3.63, 3]}>
-                <mesh
-                  geometry={nodes.TETTU_TEXTURE_0.geometry}
-                  material={materials.TEXTURE}
-                />
-              </group>
-            </a.group>
+            <CityBank
+              geometryColonna0={nodes.colonna_TEXTURE_0.geometry}
+              materialsTexture={materials.TEXTURE}
+              geometryColonna001={nodes.colonna001_TEXTURE_0.geometry}
+              geometryColonna002={nodes.colonna002_TEXTURE_0.geometry}
+              geometryColonna003={nodes.colonna003_TEXTURE_0.geometry}
+              geometryVetriFinestre001={nodes.VETRI_FINESTRE_VETRI001_0.geometr}
+              materialsVetri001={materials["VETRI.001"]}
+              geometryVetriPorta001={nodes.VETRI_PORTA_VETRI001_0.geometry}
+              geometryCube048={nodes.Cube048_TEXTURE_0.geometry}
+              geometryText002={nodes.Text002_TEXTURE_0.geometry}
+              geometryText001={nodes.Text001_TEXTURE_0.geometry}
+              geometryCespugli006Foglie003={
+                nodes.cespugli006_foglie003_0.geometry
+              }
+              materialsFoglie003={materials["foglie.003"]}
+              geometryPiante006Vasi003={nodes.piante006_vasi003_0.geometry}
+              materialsVasi003={materials["vasi.003"]}
+              geometryPiante006Terra003={nodes.piante006_terra003_0.geometry}
+              materialsTerra003={materials["terra.003"]}
+              geometryCespugli005Foglie003={
+                nodes.cespugli005_foglie003_0.geometry
+              }
+              geometryPiante005Vasi003={nodes.piante005_vasi003_0.geometry}
+              geometryPiante005Terra003={nodes.piante005_terra003_0.geometry}
+              geometryGradini={nodes.GRADINI_TEXTURE_0.geometry}
+              geometrySerramenti={nodes.SERRAMENTI_TEXTURE_0.geometry}
+              geometryStruttura={nodes.struttura_TEXTURE_0.geometry}
+              geometryTettioia={nodes.TETTOIA_TEXTURE_0.geometry}
+              geometryTettu={nodes.TETTU_TEXTURE_0.geometry}
+            />
             {/*-----------End: Bank Group--------*/}
             {/* <group position={[2.05, 1.09, 2.95]}>
               <mesh
