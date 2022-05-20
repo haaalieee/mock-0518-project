@@ -21,8 +21,10 @@ export default function CameraControl() {
   useEffect(() => {
     if (clickedCity) {
       CameraAnimation(clickedCity, objectPosition, state, ref.current);
+      console.log("clicked", objectPosition);
     } else {
       CameraAnimation(clickedCity, objectPosition, state, ref.current);
+      console.log("not-clicked", objectPosition);
     }
   }, [clickedCity, objectPosition, state]);
 

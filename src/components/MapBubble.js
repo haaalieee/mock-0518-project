@@ -8,7 +8,7 @@ import { useFrame } from "@react-three/fiber";
 
 const MapBubble = forwardRef((props, ref) => {
   // Context state provider
-  const { hoverCity } = useCity();
+  const { hoverCity, clickedCity } = useCity();
 
   // Bubble scale animation properties
   const [{ bg }] = useSpring(
@@ -24,6 +24,15 @@ const MapBubble = forwardRef((props, ref) => {
     [hoverCity]
   );
 
+  // Bubble scale animation properties when clicked is true
+  const [{ view }] = useSpring(
+    {
+      view: Number(clickedCity),
+      config: { mass: 1, tension: 120, friction: 14 },
+    },
+    [clickedCity]
+  );
+
   // Default spring animation properties
   const [{ z }] = useSpring(
     {
@@ -35,6 +44,7 @@ const MapBubble = forwardRef((props, ref) => {
 
   // Interpolations
   const bubbleScale = z.to([0, 1], [1, 1.3]);
+  const bubbleOpacity = view.to([0, 1], ["100%", "0%"]);
   const bubbleBg = bg.to([0, 1], ["#7f00a9", "#157fc9"]);
   const bubblePsuedo = () => {
     let root = document.querySelector(":root");
@@ -61,7 +71,7 @@ const MapBubble = forwardRef((props, ref) => {
       >
         <animated.div
           className="map-wrapper"
-          style={{ backgroundColor: bubbleBg }}
+          style={{ backgroundColor: bubbleBg, opacity: bubbleOpacity }}
         >
           <p>{props.text}</p>
         </animated.div>

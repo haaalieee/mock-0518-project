@@ -1,37 +1,30 @@
-import React, {
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-  useCallback,
-} from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { Html } from "@react-three/drei";
 import { gsap } from "gsap";
-import TextPlugin from "gsap/TextPlugin";
 import { useCity } from "../context/CityContext";
-
-// Force TextPlugin to not get dropped during build
-gsap.registerPlugin(TextPlugin);
+import { useCityUpdate } from "../context/CityContext";
+import { useSpring, easings } from "@react-spring/core";
+import { animated } from "@react-spring/web";
+import { IoIosClose } from "react-icons/io";
 
 const Dialog = forwardRef((props, ref) => {
-  // Typing animation in the dialog
-  const dialogRef = useRef();
-
   // Clicking blue car state
   const { isCarDialogOpen } = useCity();
 
-  // Adding state to content
-  // const [content, setContent] = useState(null);
+  const { toggleClickedCity, toggleCarDialog } = useCityUpdate();
 
-  // Create typewriting effect
-  const [displayedContent, setDisplayedContent] = useState("");
-  const [index, setIndex] = useState(0);
-  const speed = 100;
+  // Adding state to content
+  const [content, setContent] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [header, setHeader] = useState(null);
+
+  // Add state to close button
+  const [hoverCloseBtn, setHoverCloseBtn] = useState(false);
 
   /**
    * Steps
    *
-   * 1. If isCardialog is true, set content state to props.text, if isCardialog is false, set content state to null
+   * 1. If isCardialog is true, set timeout then set content state to props.text, if isCardialog is false, set content state to null
    * 2. Start animating
    */
 
@@ -39,58 +32,119 @@ const Dialog = forwardRef((props, ref) => {
     // step 1
     if (isCarDialogOpen) {
       /*Create a new setInterval and store its id*/
-      const animKey = setInterval(() => {
-        setIndex((index) => {
-          /*This setState function will set the index
-        to index+1 if there is more content otherwise
-        it will destory this animation*/
-          if (index >= props.text.length - 1) {
-            clearInterval(animKey);
-            return index;
-          }
-          return index + 1;
-        });
-      }, speed);
-      setDisplayedContent(
-        (displayedContent) => displayedContent + props.text[index]
-      );
+      setTimeout(() => {
+        setHeader(props.header);
+        setTitle(props.title);
+        setContent(props.text);
+      }, 100);
     } else {
-      setDisplayedContent("");
+      setHeader("");
+      setTitle("");
+      setContent("");
     }
-  }, [isCarDialogOpen, props, index]);
+  }, [isCarDialogOpen, props]);
 
-  // useEffect(() => {
-  //   // step 2
-  //   if (content) {
-  //     gsap.to("dialog-span", {
-  //       duration: 1,
-  //       rotation: 360,
-  //       y: 100,
-  //       stagger: 0.5,
-  //     });
-  //   }
-  // }, [content]);
+  useEffect(() => {
+    // step 2
+    if (content) {
+      gsap.fromTo(
+        ".dialog-anim",
+        {
+          y: 20,
+          opacity: 0,
+        },
+        {
+          delay: 0.3,
+          y: 0,
+          duration: 0.8,
+          opacity: 1,
+          stagger: 0.2,
+          ease: "power3.out",
+          clearProps: "all",
+        }
+      );
+    }
+  }, [content]);
+
+  // Default spring animation properties
+  const [{ o }] = useSpring(
+    {
+      o: Number(isCarDialogOpen),
+      config: {
+        mass: 1,
+        tension: 120,
+        friction: 14,
+        easing: easings.easeInOutQuart,
+      }
+    },
+    [isCarDialogOpen]
+  );
+
+  // Default spring animation properties
+  const [{ v }] = useSpring(
+    {
+      v: Number(hoverCloseBtn),
+      config: {
+        mass: 1,
+        tension: 120,
+        friction: 14,
+      }
+    },
+    [hoverCloseBtn]
+  );
+
+  // Interpolations
+  const dialogHeight = o.to([0, 1], ["0rem", "20rem"]);
+  const dialogPadding = o.to([0, 1], ["0rem 0rem", "1.5rem 2rem"]);
+  const dialogOpacity = o.to([0, 1], ["0%", "100%"]);
+  const dialogCloseBtnBg = v.to([0, 1], ["#FFFFFF", "#f3f3f3"]);
+  const dialogCloseBtnSize = v.to([0, 1], ["1.5rem", "1.8rem"]);
 
   return (
-    <group position={[10, 10, 10]} scale={[2]}>
+    <group position={[10, 10, 10]}>
       <Html
-        className="dialog-content"
-        style={{
-          display: isCarDialogOpen ? "block" : "none",
-        }}
-        calculatePosition={(_, camera, size) => [
-          size.width / 2,
+        calculatePosition={(el, camera, size) => [
+          size.width - size.width / 3,
           size.height / 2,
         ]} // Override default positioning function. (default=undefined) [ignored in transform mode]
         ref={ref}
         center
         occlude
       >
-        <div className="dialog-wrapper">
-          <p className="dialog-anim" ref={dialogRef}>
-            <span className="dialog-span">{displayedContent}</span>
-          </p>
-        </div>
+        <animated.div
+          className="dialog-content"
+          style={{
+            minHeight: dialogHeight,
+            padding: dialogPadding,
+            opacity: dialogOpacity,
+          }}
+        >
+          <animated.div
+            className="dialog-close-btn"
+            onPointerEnter={() => setHoverCloseBtn(true)}
+            onPointerLeave={() => setHoverCloseBtn(false)}
+            onClick={() => {
+              toggleClickedCity();
+              toggleCarDialog()
+            }}
+            style={{
+              backgroundColor: dialogCloseBtnBg,
+            }}
+          >
+            <animated.p
+              style={{
+                fontSize: dialogCloseBtnSize,
+              }}
+            >
+              <IoIosClose />
+            </animated.p>
+          </animated.div>
+          <div className="dialog-wrapper">
+            <p className="dialog-anim dialog-header">{header}</p>
+            <h2 className="dialog-anim">{title}</h2>
+            <p className="dialog-anim">{content}</p>
+          </div>
+        </animated.div>
       </Html>
     </group>
   );

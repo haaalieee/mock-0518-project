@@ -80,15 +80,37 @@ code {
   font-weight: 700;
 }
 .dialog-content {
-  min-width: 23rem;
-  text-align: center;
+  min-width: 18rem;
+  min-height: 20rem;
+  text-align: left;
   background-color: #ffff;
   border-radius: 10px;
-  padding: 0.5rem 2rem;
+  padding: 1.5rem 2rem;
 }
 
-.dialog-wrapper {
+.dialog-wrapper h2 {
+  color: #33a7e9;
+  font-size: 2rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.dialog-close-btn {
+  position: absolute;
+  right: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.dialog-close-btn p{
+  display: flex;
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 @keyframes App-logo-spin {

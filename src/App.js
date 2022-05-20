@@ -6,7 +6,6 @@ import City from "./components/City";
 import Rig from "./components/Rig";
 import { CityProvider } from "./context/CityContext";
 import CameraControl from "./utils/CameraControl";
-import Dialog from "./components/Dialog";
 import "./styles.css";
 
 // extend({ OrbitControls });
@@ -51,8 +50,8 @@ function App() {
             <Rig>
               <City
                 rotation={[0, 1.56, 0]}
-                scale={[0.8, 0.8, 0.8]}
-                position={[0, -3, 15]}
+                scale={[0.01, 0.01, 0.01]}
+                position={[10, -10, 20]}
               />
             </Rig>
           </Suspense>
@@ -65,13 +64,6 @@ function App() {
           minPolarAngle={0.9}
           enableDamping={true}
         /> */}
-          {/* 
-          <Dialog
-            text={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-            }
-            position={[0, 0, 0]}
-          /> */}
         </CityProvider>
       </Canvas>
       <Loader />
