@@ -4,7 +4,7 @@ import { useFrame, useThree, extend } from "@react-three/fiber";
 import CameraControls from "camera-controls";
 import CameraAnimation from "./CameraAnimation";
 import { useCity } from "../context/CityContext";
-import gsap from "gsap";
+import { useCityUpdate } from "../context/CityContext";
 
 // Custom camera controls instance
 CameraControls.install({ THREE });
@@ -17,16 +17,17 @@ export default function CameraControl() {
   const gl = useThree((state) => state.gl);
 
   const { clickedCity, objectPosition } = useCity();
+  const { toggleCarDialog } = useCityUpdate();
 
   useEffect(() => {
     if (clickedCity) {
-      CameraAnimation(clickedCity, objectPosition, state, ref.current);
-      console.log("clicked", objectPosition);
+      CameraAnimation(clickedCity, objectPosition, state, ref.current, () => toggleCarDialog());
+      // console.log("clicked", objectPosition);
     } else {
-      CameraAnimation(clickedCity, objectPosition, state, ref.current);
-      console.log("not-clicked", objectPosition);
+      CameraAnimation(clickedCity, objectPosition, state, ref.current, () => toggleCarDialog());
+      // console.log("not-clicked", objectPosition);
     }
-  }, [clickedCity, objectPosition, state]);
+  }, [clickedCity, objectPosition]);
 
   useFrame((state, delta) => {
     ref.current.update(delta);

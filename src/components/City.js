@@ -5,10 +5,8 @@ license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 source: https://sketchfab.com/3d-models/low-poly-city-4a72d39a88264d02af6dde464bbcbb5c
 title: Low Poly City
 */
-import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 import CityBankCar from "./CityBankCar";
 import CityBank from "./CityBank";
 
@@ -17,42 +15,6 @@ export default function City({ ...props }) {
   const cityPark = useRef();
 
   const { nodes, materials } = useGLTF("/city.gltf");
-
-  // Mouse over on park location
-  // const [hoverPark, setHoverPark] = useState(false);
-
-  // Ref for bubble rotation in respect to camera
-  let cameraPosition = useRef();
-
-  // useEffect(() => {
-  //   void (document.body.style.cursor =
-  //     hoverPark ? "pointer" : "auto");
-  // }, [hoverPark ]);
-
-  useFrame((state) => {
-    // const t = state.clock.getElapsedTime();
-    // if (cityClicked) {
-    //   camera.updateProjectionMatrix();
-    // }
-    // console.log(camera.position);
-    // Setting state camera direction
-    // const cameraDirection = new THREE.Vector3(
-    //   state.camera.position.x,
-    //   state.camera.position.y,
-    //   state.camera.position.z
-    // );
-    // const cameraNormalize = cameraDirection.normalize();
-    // cameraPosition.current = cameraNormalize.z;
-    // console.log(cameraPosition.current);
-    // Zoom animation when city is clicked
-    // console.log(camera.position)
-    // console.log(camera.rotation);
-    // if (cityClicked) {
-    //   state.camera.lookAt(cityBank.current.position);
-    // }
-    // state.camera.position.lerp(v.set(cityClicked? 25 : state.camera.position.x, cityClicked ? 1 : state.camera.position.y, cityClicked ? 0 : state.camera.position.z), 0.05)
-    // state.camera.updateProjectionMatrix()
-  });
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -66,6 +28,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.base_TEXTURE_FINALE_0.geometry}
               material={materials.TEXTURE_FINALE}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -76,6 +40,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.casa_TEXTURE_FINALE_0.geometry}
               material={materials.TEXTURE_FINALE}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -86,6 +52,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.finestre_laterali002_LEGNO_0.geometry}
               material={materials.LEGNO}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -96,6 +64,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.porta_LEGNO_0.geometry}
               material={materials.LEGNO}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -106,6 +76,7 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.tetto001_TEXTURE_FINALE_0.geometry}
               material={materials.TEXTURE_FINALE}
+              castShadow
             />
           </group>
           <group
@@ -116,10 +87,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube_BIANCO_0.geometry}
               material={materials.BIANCO}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.Cube_NERO_0.geometry}
               material={materials.NERO}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -130,6 +105,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder_GIALLO_0.geometry}
               material={materials.GIALLO}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -140,6 +117,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cespuglio_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -150,6 +129,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cespuglio001_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -160,6 +141,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -170,6 +153,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere002_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -180,6 +165,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere003_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -190,6 +177,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere004_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -200,6 +189,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere005_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -210,6 +201,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere006_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -220,6 +213,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere007_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -230,6 +225,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere008_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -240,6 +237,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere009_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -250,6 +249,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere010_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -260,6 +261,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere011_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -270,6 +273,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere012_CESPUGLI002_0.geometry}
               material={materials["CESPUGLI.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -280,10 +285,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_quadrato_dx_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_quadrato_dx_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -294,10 +303,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_quadrato_sx_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_quadrato_sx_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -308,10 +321,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_rettangolare_dx_1_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_rettangolare_dx_1_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -322,10 +339,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_rettangolare_dx_2_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_rettangolare_dx_2_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -336,10 +357,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_rettangolare_dx_3_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_rettangolare_dx_3_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -350,10 +375,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_rettangolare_sx_1_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_rettangolare_sx_1_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -364,10 +393,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_rettangolare_sx_2_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_rettangolare_sx_2_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -378,10 +411,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.vaso_rettangolare_sx_3_VASI001_0.geometry}
               material={materials["VASI.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.vaso_rettangolare_sx_3_TERRA001_0.geometry}
               material={materials["TERRA.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -392,6 +429,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube001_TEXTURE_FINALE_0.geometry}
               material={materials.TEXTURE_FINALE}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -402,6 +441,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube002__0.geometry}
               material={materials["Cube.002__0"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -412,6 +453,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.casa002_VETRI_FINALE001_0.geometry}
               material={materials["VETRI_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -422,6 +465,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.finestre_laterali006_VETRI_FINALE001_0.geometry}
               material={materials["VETRI_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -432,6 +477,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.porta002_VETRI_FINALE001_0.geometry}
               material={materials["VETRI_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -442,6 +489,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere001_texture001_0.geometry}
               material={materials["texture.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -452,6 +501,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere013_texture001_0.geometry}
               material={materials["texture.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -462,6 +513,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere014_texture001_0.geometry}
               material={materials["texture.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -472,6 +525,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.sassi_piastrelle_texture001_0.geometry}
               material={materials["texture.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -482,6 +537,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.CANCELLO_GROSSO_lowpolytex001_0.geometry}
               material={materials["lowpolytex.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -492,10 +549,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.CANCELLO_GROSSO_ENTRATA_lowpolytex001_0.geometry}
               material={materials["lowpolytex.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.CANCELLO_GROSSO_ENTRATA_CARTELLO001_0.geometry}
               material={materials["CARTELLO.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -506,6 +567,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.CANCELLO_GROSSO001_lowpolytex001_0.geometry}
               material={materials["lowpolytex.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -516,6 +579,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.CANCELLO_GROSSO002_lowpolytex001_0.geometry}
               material={materials["lowpolytex.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -526,6 +591,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube061__0.geometry}
               material={materials["Cube.002__0"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -536,6 +603,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube070__0.geometry}
               material={materials["Cube.002__0"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -546,6 +615,7 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.TERRENO_BASI_EDIFICI_0.geometry}
               material={materials.BASI_EDIFICI}
+              receiveShadow
             />
           </group>
           <group
@@ -560,6 +630,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube021_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -569,6 +641,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder007_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -578,12 +652,16 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere037_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-2.56, 1.26, 7.08]} rotation={[-0.07, 0.3, 0.13]}>
               <mesh
                 geometry={nodes.Icosphere038_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -593,36 +671,48 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere039_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.56, 1.31, 6.44]} rotation={[0.03, -0.2, 1.75]}>
               <mesh
                 geometry={nodes.Cube020_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.08, 1.22, 6.22]} rotation={[0.03, -0.2, 2.21]}>
               <mesh
                 geometry={nodes.Cylinder006_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.04, 1.15, 7]} rotation={[0.03, -0.2, 2.21]}>
               <mesh
                 geometry={nodes.Icosphere034_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[0.81, 1.25, 6.92]} rotation={[0.03, -0.2, -2.79]}>
               <mesh
                 geometry={nodes.Icosphere035_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[0.9, 0.93, 6.94]} rotation={[0.03, -0.2, 2.21]}>
               <mesh
                 geometry={nodes.Icosphere036_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -632,6 +722,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.casa_base_palette_0.geometry}
                 material={materials.palette}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -641,6 +733,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.finestra_dx_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -651,6 +745,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.finestra_sx_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -661,6 +757,7 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Plane_Material004_0.geometry}
                 material={materials["Material.004"]}
+                receiveShadow
               />
             </group>
             <group
@@ -671,6 +768,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.porta001_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -680,6 +779,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.tetto_palette_0.geometry}
                 material={materials.palette}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -689,6 +790,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_dx_vetri001_0.geometry}
                 material={materials["vetri.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -699,6 +802,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_porta_vetri001_0.geometry}
                 material={materials["vetri.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -709,12 +814,16 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_sx_vetri001_0.geometry}
                 material={materials["vetri.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.62, -2.49, 0.7]} scale={1.55}>
               <mesh
                 geometry={nodes.Cube018_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -725,12 +834,16 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube019_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.97, 1.4, 5.15]} rotation={[0, 0, Math.PI / 2]}>
               <mesh
                 geometry={nodes.base_insegne_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -740,10 +853,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.insegna_texture_0.geometry}
                 material={materials.texture}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.insegna_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -754,6 +871,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.pali__0.geometry}
                 material={materials["Cube.002__0"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -764,6 +883,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.pali001__0.geometry}
                 material={materials["Cube.002__0"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -774,6 +895,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.pali002__0.geometry}
                 material={materials["Cube.002__0"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -783,6 +906,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.cespugli_foglie_0.geometry}
                 material={materials.foglie}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -792,10 +917,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.piante_vasi_0.geometry}
                 material={materials.vasi}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.piante_terra_0.geometry}
                 material={materials.terra}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -806,6 +935,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube011_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -816,24 +947,32 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube012_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.43, 2.52, 0.93]} rotation={[0, 0, Math.PI / 2]}>
               <mesh
                 geometry={nodes.Cube013_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.43, 1.63, 0.93]} rotation={[0, 0, Math.PI / 2]}>
               <mesh
                 geometry={nodes.Cube014_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.43, 0.73, 0.93]} rotation={[0, 0, Math.PI / 2]}>
               <mesh
                 geometry={nodes.Cube015_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -843,6 +982,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube016_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -852,23 +993,30 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube017_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.46, 1.93, 4.05]} rotation={[0, 0, -3.14]}>
               <mesh
                 geometry={nodes.tenda_frontale001_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.14, 3.39, 3.72]} rotation={[0, 0, Math.PI / 2]}>
               <mesh
                 geometry={nodes.tettoia_Material004_0.geometry}
                 material={materials["Material.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.TERRENO001_BASI_EDIFICI_0.geometry}
               material={materials.BASI_EDIFICI}
+              receiveShadow
             />
           </group>
           <group
@@ -884,10 +1032,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.bancone_texture_cocktail_0.geometry}
                 material={materials.cocktail}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.bancone_texture_pavimentop_terrazza_0.geometry}
                 material={materials.pavimentop_terrazza}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -898,6 +1050,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.bottino_Material005_0.geometry}
                 material={materials["Material.005"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -908,6 +1062,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.porta_bar_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -918,10 +1074,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.poster_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.poster_poster_0.geometry}
                 material={materials.poster}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -932,6 +1092,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.tenda_frontale002_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -942,6 +1104,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_vetri_0.geometry}
                 material={materials.vetri}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -952,6 +1116,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_centrali_vetri_0.geometry}
                 material={materials.vetri}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -962,6 +1128,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_porta_bar_vetri_0.geometry}
                 material={materials.vetri}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -971,6 +1139,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_porta_principale_vetri_0.geometry}
                 material={materials.vetri}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -980,14 +1150,19 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube022_vetri_0.geometry}
                 material={materials.vetri}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.Cube022_TEXTURE_FINALE001_0.geometry}
                 material={materials["TEXTURE_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.Cube022_pavimentop_terrazza_0.geometry}
                 material={materials.pavimentop_terrazza}
+                receiveShadow
               />
             </group>
             <group
@@ -997,6 +1172,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube023_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1006,10 +1183,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube024_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.Cube024_postermuro_0.geometry}
                 material={materials.postermuro}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1019,6 +1200,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.porta_principale_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1028,6 +1211,7 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.TETTO_texture001_0.geometry}
                 material={materials["texture.001"]}
+                receiveShadow
               />
             </group>
             <group
@@ -1038,6 +1222,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.tettoia001_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1048,6 +1234,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Text_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1058,6 +1246,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prato_bar_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1067,6 +1257,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.piramide_vetri_0.geometry}
                 material={materials.vetri}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1077,12 +1269,16 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.26, -4.81, 6.88]} scale={1.03}>
               <mesh
                 geometry={nodes.sgabello001_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1093,12 +1289,16 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello002_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3, -3.26, 6.83]} scale={0.8}>
               <mesh
                 geometry={nodes.sgabello003_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1109,6 +1309,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello004_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1119,6 +1321,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello005_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1129,6 +1333,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello006_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1139,6 +1345,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello007_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1149,6 +1357,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello009_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1159,6 +1369,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.sgabello008_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1168,6 +1380,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere052_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1177,6 +1391,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere053_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1186,6 +1402,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere054_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1195,6 +1413,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere055_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1204,6 +1424,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere056_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1213,6 +1435,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere057_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1223,10 +1447,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1004_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1004_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1237,10 +1465,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2004_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2004_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1251,10 +1483,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3004_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3004_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1265,6 +1501,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.cespugli001_foglie001_0.geometry}
                 material={materials["foglie.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1275,10 +1513,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.piante001_vasi001_0.geometry}
                 material={materials["vasi.001"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.piante001_terra001_0.geometry}
                 material={materials["terra.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1288,6 +1530,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere058_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1297,6 +1541,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere059_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1307,10 +1553,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3001_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3001_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1320,6 +1570,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere060_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1329,6 +1581,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere061_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1339,10 +1593,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1001_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1001_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1352,6 +1610,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere040_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1361,6 +1621,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere041_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1370,6 +1632,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere042_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1379,6 +1643,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere043_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1388,6 +1654,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere044_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1397,6 +1665,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere045_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1407,10 +1677,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1002_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1002_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1421,10 +1695,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2001_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2001_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1435,10 +1713,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3002_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3002_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1448,6 +1730,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere046_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1457,6 +1741,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere047_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1466,6 +1752,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere048_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1475,6 +1763,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere049_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1484,6 +1774,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere050_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1493,6 +1785,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere051_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1503,10 +1797,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1003_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1003_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1517,10 +1815,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2002_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2002_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1531,10 +1833,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3003_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3003_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1544,6 +1850,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere062_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1553,6 +1861,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere063_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1563,10 +1873,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3007_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3007_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1576,6 +1890,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere099_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1585,6 +1901,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere100_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1595,10 +1913,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1007_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1007_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1608,6 +1930,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere101_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1617,6 +1941,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere102_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1626,6 +1952,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere103_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1635,6 +1963,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere104_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1644,6 +1974,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere105_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1653,6 +1985,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere106_CESPUGLI_0.geometry}
                 material={materials.CESPUGLI}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1663,10 +1997,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1008_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_1008_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1677,10 +2015,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2003_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_2003_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1691,10 +2033,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3008_VASI_0.geometry}
                 material={materials.VASI}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_dx_3008_TERRA_0.geometry}
                 material={materials.TERRA}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1704,6 +2050,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.ombrellone_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1714,6 +2062,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.ombrellone001_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1724,6 +2074,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.ombrellone002_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1734,6 +2086,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.ombrellone003_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1744,6 +2098,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.ombrellone004_texture001_0.geometry}
                 material={materials["texture.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1754,11 +2110,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.bottino001_Material005_0.geometry}
                 material={materials["Material.005"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.prato_mall_BASI_EDIFICI_0.geometry}
               material={materials.BASI_EDIFICI}
+              receiveShadow
             />
           </group>
           <group
@@ -1770,30 +2129,40 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.vetri_porta001_vetri002_0.geometry}
                 material={materials["vetri.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.18, -0.17, 2.13]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.vetro_dx_vetri002_0.geometry}
                 material={materials["vetri.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.18, -3.39, 2.05]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.vetro_facciata_sxx_vetri002_0.geometry}
                 material={materials["vetri.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.18, -0.17, 2.13]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.vetro_sx_vetri002_0.geometry}
                 material={materials["vetri.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.18, -0.2, 0.17]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.base001_vasi002_0.geometry}
                 material={materials["vasi.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1804,18 +2173,24 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.porta003_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.18, -0.17, 2.01]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.tetto002_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.18, -3.39, 2.05]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.casa_base001_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1826,6 +2201,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.base002_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1836,12 +2213,16 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.base_tubo001_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.62, -1.94, 4.09]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.cassetta001_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1852,6 +2233,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.tubo001_tubo001_0.geometry}
                 material={materials["tubo.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1862,28 +2245,38 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder008_nero002_0.geometry}
                 material={materials["nero.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2.62, -1.29, 0.36]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.piante002_vasi002_0.geometry}
                 material={materials["vasi.002"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.piante002_terra002_0.geometry}
                 material={materials["terra.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2.62, -1.29, 0.36]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.cespugli002_foglie002_0.geometry}
                 material={materials["foglie.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.12, -4.16, 2.84]} rotation={[0, 0, 1.57]}>
               <mesh
                 geometry={nodes.tenda_frontale003_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.65, 3.59, 3.09]} rotation={[0, 0, -3.14]}>
@@ -1892,11 +2285,14 @@ export default function City({ ...props }) {
                   nodes.tenda_frontale_piccola_TEXTURE_FINALE_0.geometry
                 }
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.TERRENO002_BASI_EDIFICI_0.geometry}
               material={materials.BASI_EDIFICI}
+              receiveShadow
             />
           </group>
           <group
@@ -1908,48 +2304,64 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube033_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.14, -10.55, 1.94]} scale={2.18}>
               <mesh
                 geometry={nodes.Cube032_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.07, 3.72, 5.28]} scale={2.18}>
               <mesh
                 geometry={nodes.Cube031_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.14, 7.21, 1.94]} scale={2.18}>
               <mesh
                 geometry={nodes.Cube030_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.06, -14.04, 5.28]} scale={2.18}>
               <mesh
                 geometry={nodes.Cube029_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.13, -10.55, 1.94]} scale={2.18}>
               <mesh
                 geometry={nodes.Cube028_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.06, 3.72, 5.28]} scale={2.18}>
               <mesh
                 geometry={nodes.Cube027_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.13, 7.21, 1.94]} scale={2.18}>
               <mesh
                 geometry={nodes.Cube026_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1960,32 +2372,44 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube025_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[13.75, -9.09, 7.07]} scale={[1.29, 1.93, 2.81]}>
               <mesh
                 geometry={nodes.condizionatore_nero004_0.geometry}
                 material={materials["nero.004"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.condizionatore_nero003_0.geometry}
                 material={materials["nero.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[18.83, -9.09, 7.07]} scale={[1.29, 1.93, 2.81]}>
               <mesh
                 geometry={nodes.condizionatore001_nero004_0.geometry}
                 material={materials["nero.004"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.condizionatore001_nero003_0.geometry}
                 material={materials["nero.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-15.3, -10.9, 2.71]} scale={2.18}>
               <mesh
                 geometry={nodes.pilastro_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -1996,598 +2420,798 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.freccia_insegna_0.geometry}
                 material={materials.insegna}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.freccia_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, -11.99, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina005_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, -12.02, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, -12.03, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, -11.99, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina001_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, -12.02, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia001_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, -12.03, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio001_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, -11.37, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina002_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, -11.4, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia002_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, -11.42, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio002_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, -9.62, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina003_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, -9.65, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia003_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, -9.66, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio003_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, -9.1, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina004_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, -9.13, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia004_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, -9.15, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio004_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, 5.82, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina006_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, 5.79, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia005_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, 5.78, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio005_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, 6.31, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina007_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, 6.28, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia006_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, 6.27, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio006_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, 8.1, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina008_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, 8.07, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia007_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, 8.06, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio007_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.04, 8.64, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina009_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-10.07, 8.61, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia008_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-9.83, 8.6, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio008_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, 8.64, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina010_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, 8.61, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia009_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, 8.6, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio009_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, 8.17, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina011_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, 8.14, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia010_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, 8.12, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio010_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, 6.39, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina012_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, 6.36, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia011_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, 6.34, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio011_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, 5.95, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina013_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, 5.92, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia012_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, 5.9, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio012_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, -9.09, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina014_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, -9.12, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia013_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, -9.13, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio013_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, -9.59, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina015_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, -9.62, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia014_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, -9.63, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio014_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, -11.35, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina016_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, -11.38, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia015_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, -11.4, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio015_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.3, -11.9, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina017_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.27, -11.93, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia016_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.51, -11.94, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio016_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, -11.48, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina018_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, -11.51, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia017_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, -11.52, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio017_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, -9.65, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina019_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, -9.68, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia018_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, -9.69, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio018_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, -9.17, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina020_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, -9.2, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia019_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, -9.21, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio019_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, 5.81, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina021_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, 5.78, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia020_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, 5.77, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio020_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, 6.29, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina022_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, 6.26, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia021_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, 6.24, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio021_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, 8.1, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina023_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, 8.07, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia022_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, 8.06, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio022_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.26, 8.53, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina024_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.23, 8.5, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia023_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-8.46, 8.48, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio023_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, 8.75, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina025_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, 8.72, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia024_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, 8.71, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio024_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, 8.2, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina026_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, 8.17, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia025_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, 8.15, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio025_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, 6.33, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina027_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, 6.3, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia026_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, 6.29, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio026_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, 5.83, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina028_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, 5.8, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia027_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, 5.78, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio027_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, -9.19, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina029_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, -9.21, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia028_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, -9.23, 1.92]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio028_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, -9.68, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina030_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, -9.71, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia029_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, -9.73, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio029_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, -11.4, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina031_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, -11.43, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia030_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, -11.44, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio030_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.98, -11.97, 0.97]} scale={1.85}>
               <mesh
                 geometry={nodes.tubo_benzina032_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.01, -12, 1.84]} scale={1.85}>
               <mesh
                 geometry={nodes.maniglia031_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.77, -12.02, 2.23]} scale={1.85}>
               <mesh
                 geometry={nodes.beccuccio031_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[12.42, -1.66, 2.68]} scale={2.18}>
               <mesh
                 geometry={nodes.porta004_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[16.04, -1.66, 3.83]} scale={2.18}>
               <mesh
                 geometry={nodes.SHOP_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2598,6 +3222,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.tetto_shop_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2608,29 +3234,36 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.tettoia002_benzinaio_0.geometry}
                 material={materials.benzinaio}
+                castShadow
               />
             </group>
             <group position={[-15.32, -11.25, 0.14]} scale={2.18}>
               <mesh
                 geometry={nodes.salvagente_texture002_0.geometry}
                 material={materials["texture.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[12.53, -1.34, 2.42]} scale={2.18}>
               <mesh
                 geometry={nodes.vetri_porta002_vetri003_0.geometry}
                 material={materials["vetri.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[16.04, -1.66, 3.83]} scale={2.18}>
               <mesh
                 geometry={nodes.vetri_shop_vetri003_0.geometry}
                 material={materials["vetri.003"]}
+                castShadow
               />
             </group>
             <mesh
               geometry={nodes.terreno_texture002_0.geometry}
               material={materials["texture.002"]}
+              receiveShadow
             />
           </group>
           <group
@@ -2642,48 +3275,64 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.base004_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.26, 0.12, 1.51]}>
               <mesh
                 geometry={nodes.tetto003_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.26, 0.12, -0.02]}>
               <mesh
                 geometry={nodes.casa_base002_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.08, 2.09, 3.7]}>
               <mesh
                 geometry={nodes.cassetta_nero_0.geometry}
                 material={materials.nero}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.08, 2.09, 3.55]}>
               <mesh
                 geometry={nodes.base003__0.geometry}
                 material={materials["Cube.002__0"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.21, 2.74, 3.8]}>
               <mesh
                 geometry={nodes.tubo_tubo_0.geometry}
                 material={materials.tubo}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.21, 2.75, 3.53]} rotation={[0, 0, -0.39]}>
               <mesh
                 geometry={nodes.base_tubo_tubo_0.geometry}
                 material={materials.tubo}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.1, 1.95, 3.9]}>
               <mesh
                 geometry={nodes.Cube034_nero_0.geometry}
                 material={materials.nero}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.92, 1.94, 1.6]}>
@@ -2692,10 +3341,14 @@ export default function City({ ...props }) {
                   nodes.finestra_frontale_sx_porta_e_serramenti_0.geometry
                 }
                 material={materials.porta_e_serramenti}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.finestra_frontale_sx_vetri004_0.geometry}
                 material={materials["vetri.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.84, -4.15, 1.6]} rotation={[0, 0, 1.57]}>
@@ -2704,96 +3357,132 @@ export default function City({ ...props }) {
                   nodes.finestra_facciata_dx_porta_e_serramenti_0.geometry
                 }
                 material={materials.porta_e_serramenti}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.finestra_facciata_dx_vetri004_0.geometry}
                 material={materials["vetri.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.36, 0.12, -0.33]}>
               <mesh
                 geometry={nodes.finestra_dx001_vetri004_0.geometry}
                 material={materials["vetri.004"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.finestra_dx001_porta_e_serramenti_0.geometry}
                 material={materials.porta_e_serramenti}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.26, 0.12, -0.35]}>
               <mesh
                 geometry={nodes.finestra_sx001_vetri004_0.geometry}
                 material={materials["vetri.004"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.finestra_sx001_porta_e_serramenti_0.geometry}
                 material={materials.porta_e_serramenti}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2.71, -0.07, 1.59]} rotation={[0, 0, 0.54]}>
               <mesh
                 geometry={nodes.porta005_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.porta005_vetri004_0.geometry}
                 material={materials["vetri.004"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.94, 2.77, 0.19]} rotation={[0, 0, 1.57]}>
               <mesh
                 geometry={nodes.Icosphere067_CESPUGLI003_0.geometry}
                 material={materials["CESPUGLI.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.94, 2.73, 0.19]} rotation={[0, 0, 1.57]}>
               <mesh
                 geometry={nodes.Icosphere066_CESPUGLI003_0.geometry}
                 material={materials["CESPUGLI.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.94, 2.63, 0.11]} rotation={[0, 0, 1.57]}>
               <mesh
                 geometry={nodes.vaso_rettangolare_sx_3001_VASI003_0.geometry}
                 material={materials["VASI.003"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_sx_3001_TERRA003_0.geometry}
                 material={materials["TERRA.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.94, 1.49, 0.17]} rotation={[0, 0, 1.57]}>
               <mesh
                 geometry={nodes.Icosphere065_CESPUGLI001_0.geometry}
                 material={materials["CESPUGLI.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.94, 1.45, 0.17]} rotation={[0, 0, 1.57]}>
               <mesh
                 geometry={nodes.Icosphere064_CESPUGLI001_0.geometry}
                 material={materials["CESPUGLI.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.94, 1.36, 0.11]} rotation={[0, 0, 1.57]}>
               <mesh
                 geometry={nodes.vaso_rettangolare_sx_3002_VASI002_0.geometry}
                 material={materials["VASI.002"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.vaso_rettangolare_sx_3002_TERRA002_0.geometry}
                 material={materials["TERRA.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.62, 1.2, 2.72]}>
               <mesh
                 geometry={nodes.tenda_frontale_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.42, 4.52, 2.72]} rotation={[0, 0, -1.57]}>
               <mesh
                 geometry={nodes.tenda_frontale004_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2.61, -3.26, 2.72]}>
@@ -2802,6 +3491,8 @@ export default function City({ ...props }) {
                   nodes.tenda_frontale_piccola001_TEXTURE_FINALE_0.geometry
                 }
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.64, -4.54, 2.77]} rotation={[0, 0, 1.57]}>
@@ -2810,11 +3501,14 @@ export default function City({ ...props }) {
                   nodes.tenda_frontale_facciata_dx_TEXTURE_FINALE_0.geometry
                 }
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.Plane001_TEXTURE_FINALE_0.geometry}
               material={materials.TEXTURE_FINALE}
+              receiveShadow
             />
           </group>
           {/* ------ City Park ----- */}
@@ -2832,6 +3526,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.abete_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2842,6 +3538,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere033_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2852,6 +3550,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere032_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2862,6 +3562,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere031_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2872,6 +3574,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere030_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2882,6 +3586,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere029_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2892,6 +3598,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere028_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2902,6 +3610,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere027_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2912,6 +3622,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere026_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2922,6 +3634,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere025_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2932,6 +3646,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder005_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2942,6 +3658,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder002_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2952,6 +3670,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder003_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2962,6 +3682,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere024_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2972,6 +3694,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder004_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2982,6 +3706,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere023_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -2992,6 +3718,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere022_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3002,6 +3730,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere021_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3012,6 +3742,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere020_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3022,6 +3754,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere019_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3032,6 +3766,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere015_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3042,6 +3778,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere016_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3052,6 +3790,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere017_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3062,6 +3802,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Icosphere018_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3072,6 +3814,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Panca_picnic_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3082,6 +3826,7 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Panca_picnic001_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
               />
             </group>
             <group
@@ -3092,6 +3837,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.BOTTINO_Material003_0.geometry}
                 material={materials["Material.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3102,6 +3849,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.BOTTINO001_Material003_0.geometry}
                 material={materials["Material.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3112,6 +3861,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.BOTTINO002_Material003_0.geometry}
                 material={materials["Material.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3122,6 +3873,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.BOTTINO003_Material003_0.geometry}
                 material={materials["Material.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3132,6 +3885,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder001_Material002_0.geometry}
                 material={materials["Material.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3142,6 +3897,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.acqua_acqua001_0.geometry}
                 material={materials["acqua.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3152,6 +3909,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.fontana_base_Material002_0.geometry}
                 material={materials["Material.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3161,9 +3920,12 @@ export default function City({ ...props }) {
             >
               <mesh
                 geometry={
-                  nodes.fontana_base_parte_superiore_Material002_0.geometry
+                  nodes.fontana_base_parte_superiore_Material002_0
+                    .geometryCespugli005Foglie003
                 }
                 material={materials["Material.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3174,6 +3936,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE005_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3184,6 +3948,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE028_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3194,6 +3960,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE029_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3204,6 +3972,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE030_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3214,6 +3984,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE002_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3224,6 +3996,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE003_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3234,6 +4008,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE006_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3244,6 +4020,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE007_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3254,6 +4032,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE001_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3264,6 +4044,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE009_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3274,6 +4056,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE010_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3284,6 +4068,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE011_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3294,6 +4080,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE004_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3304,6 +4092,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube005_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3314,6 +4104,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube063_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3324,6 +4116,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube008_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3334,6 +4128,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube010_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3344,6 +4140,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube007_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3354,6 +4152,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube004_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3364,6 +4164,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube006_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3374,6 +4176,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube003_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3384,6 +4188,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.MURO_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3394,6 +4200,7 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.terriccio_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                receiveShadow
               />
             </group>
             <group
@@ -3404,6 +4211,7 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.terriccio001_terriccio_0.geometry}
                 material={materials.terriccio}
+                receiveShadow
               />
             </group>
             <group
@@ -3414,6 +4222,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3424,6 +4234,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova002_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3434,6 +4246,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova003_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3444,6 +4258,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova004_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3454,6 +4270,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova2_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3464,6 +4282,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova2002_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3474,6 +4294,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova2003_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3484,6 +4306,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova2004_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3494,11 +4318,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.volpe_Material002_0.geometry}
                 material={materials["Material.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.TERRENO_SOTTO_PARCO_BASI_EDIFICI_0.geometry}
               material={materials.BASI_EDIFICI}
+              receiveShadow
             />
           </group>
           {/* ------ End: City Park ----- */}
@@ -3510,6 +4337,7 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Plane006_parcheggio_gelati_0.geometry}
               material={materials.parcheggio_gelati}
+              receiveShadow
             />
           </group>
           <group
@@ -3520,6 +4348,7 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Plane008_texture_FINALE002_0.geometry}
               material={materials["texture_FINALE.002"]}
+              receiveShadow
             />
           </group>
           <group
@@ -3535,6 +4364,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube059_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3545,6 +4376,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube058_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3555,6 +4388,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube057_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3565,6 +4400,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.VETRI002_VETRI002_0.geometry}
                 material={materials["VETRI.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3575,6 +4412,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.SERRAMENTI001_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3585,6 +4424,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.TETTO003_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3595,6 +4436,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.BASE_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3605,6 +4448,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube056_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3615,6 +4460,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.BANDIERA_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3625,6 +4472,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.poggiolo004_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3635,6 +4484,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube055_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3645,6 +4496,7 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Plane014_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                receiveShadow
               />
             </group>
             <group
@@ -3655,6 +4507,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Text003__0.geometry}
                 material={materials["Cube.002__0"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3665,6 +4519,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.PRATO_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3675,11 +4531,14 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.PRATO001_TEXTURE_FINALE_0.geometry}
                 material={materials.TEXTURE_FINALE}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.Plane011_TEXTURE_FINALE_0.geometry}
               material={materials.TEXTURE_FINALE}
+              receiveShadow
             />
           </group>
           <group
@@ -3691,138 +4550,184 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder026_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-3.47, -2.7, 2.4]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder027_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.41, -5.28, 2.03]}>
               <mesh
                 geometry={nodes.Cylinder028_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.41, -5.28, 3.67]}>
               <mesh
                 geometry={nodes.Icosphere076_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.02, -3.59, 1.62]}>
               <mesh
                 geometry={nodes.Cylinder029_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.02, -3.59, 3.26]}>
               <mesh
                 geometry={nodes.Icosphere077_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.38, -1.25, 1.62]}>
               <mesh
                 geometry={nodes.Cylinder030_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.38, -1.25, 3.26]}>
               <mesh
                 geometry={nodes.Icosphere078_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[6.19, -1.16, 3.29]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder031_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.13, 1.69, 3.31]} rotation={[0, 0, -0.23]}>
               <mesh
                 geometry={nodes.Cylinder032_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.04, -1, 1.62]}>
               <mesh
                 geometry={nodes.Cylinder033_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.04, -1, 3.26]}>
               <mesh
                 geometry={nodes.Icosphere079_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.97, 5.16, 3.2]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder034_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-4.4, 6.21, 3.22]} rotation={[0, 0, 0.13]}>
               <mesh
                 geometry={nodes.Cylinder035_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2, 6.24, 1.61]}>
               <mesh
                 geometry={nodes.Cylinder036_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2, 6.24, 3.24]}>
               <mesh
                 geometry={nodes.Icosphere080_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.47, 6.24, 1.59]}>
               <mesh
                 geometry={nodes.Cylinder037_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.47, 6.24, 3.22]}>
               <mesh
                 geometry={nodes.Icosphere081_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.86, 3.51, 3.2]} rotation={[0, 0, 1.07]}>
               <mesh
                 geometry={nodes.Cylinder038_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.04, -5.32, 3.2]} rotation={[0, 0, 0.13]}>
               <mesh
                 geometry={nodes.Cylinder039_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-2.98, 1.29, 1.64]}>
               <mesh
                 geometry={nodes.Cylinder040_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-2.98, 1.29, 3.28]}>
               <mesh
                 geometry={nodes.Icosphere082_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[0.8, 3.79, 4.47]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder041_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -3833,125 +4738,166 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder042_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.58, -0.74, 3.26]} rotation={[0, 0, -1.06]}>
               <mesh
                 geometry={nodes.Icosphere083_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.05, 5.15, 1.62]}>
               <mesh
                 geometry={nodes.Cylinder043_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.05, 5.15, 3.26]}>
               <mesh
                 geometry={nodes.Icosphere084_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.43, 5.16, 1.62]} rotation={[0, 0, 0.5]}>
               <mesh
                 geometry={nodes.Cylinder044_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.43, 5.16, 3.26]} rotation={[0, 0, 0.5]}>
               <mesh
                 geometry={nodes.Icosphere085_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.87, 7.22, 3.2]} rotation={[0, 0, 1.11]}>
               <mesh
                 geometry={nodes.Cylinder045_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2.76, -0.47, 2.91]}>
               <mesh
                 geometry={nodes.Cylinder046_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[2.76, -0.47, 4.55]}>
               <mesh
                 geometry={nodes.Icosphere086_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[10.36, 13.16, 4.1]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder047_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[7.49, 17, 4.1]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder070_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-3.8, 23.5, 1.59]} rotation={[0, 0, 0.35]}>
               <mesh
                 geometry={nodes.Cylinder071_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-3.8, 23.5, 3.22]} rotation={[0, 0, 0.35]}>
               <mesh
                 geometry={nodes.Icosphere123_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-7.17, 3.2, 1.6]}>
               <mesh
                 geometry={nodes.Cylinder072_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-7.17, 3.2, 3.24]}>
               <mesh
                 geometry={nodes.Icosphere124_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-7.17, 3.2, 1.6]}>
               <mesh
                 geometry={nodes.Cylinder073_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-7.17, 3.2, 3.24]}>
               <mesh
                 geometry={nodes.Icosphere125_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-4.49, 3.2, 1.6]}>
               <mesh
                 geometry={nodes.Cylinder074_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-4.49, 3.2, 3.24]}>
               <mesh
                 geometry={nodes.Icosphere126_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-6.56, 8.85, 2.33]} rotation={[0, 0, 1.75]}>
               <mesh
                 geometry={nodes.Cylinder075_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.Plane012_texture_FINALE002_0.geometry}
               material={materials["texture_FINALE.002"]}
+              receiveShadow
             />
           </group>
           <group
@@ -3963,54 +4909,72 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder051_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-3.47, -2.7, 2.11]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder052_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.41, -5.28, 1.28]} scale={1.09}>
               <mesh
                 geometry={nodes.Cylinder053_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.41, -5.33, 2.96]}>
               <mesh
                 geometry={nodes.Icosphere107_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.02, -3.64, 1.25]}>
               <mesh
                 geometry={nodes.Cylinder054_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.02, -3.64, 2.89]}>
               <mesh
                 geometry={nodes.Icosphere108_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.38, -1.25, 1.33]} scale={1.09}>
               <mesh
                 geometry={nodes.Cylinder055_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.38, -1.3, 3.01]}>
               <mesh
                 geometry={nodes.Icosphere109_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[6.19, -1.21, 3.27]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder056_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4021,113 +4985,150 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder057_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.04, -1.05, 1.21]}>
               <mesh
                 geometry={nodes.Cylinder058_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.04, -1.05, 2.85]}>
               <mesh
                 geometry={nodes.Icosphere110_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.43, 7.34, 3.14]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder059_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.96, 5.16, 2.83]} rotation={[0, 0, 0.13]}>
               <mesh
                 geometry={nodes.Cylinder060_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.32, 4.14, 1.31]}>
               <mesh
                 geometry={nodes.Cylinder061_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.32, 4.14, 2.95]}>
               <mesh
                 geometry={nodes.Icosphere111_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.47, 6.24, 1.29]}>
               <mesh
                 geometry={nodes.Cylinder062_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.47, 6.24, 2.93]}>
               <mesh
                 geometry={nodes.Icosphere112_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[0.39, 8.65, 2.86]} rotation={[0, 0, 1.07]}>
               <mesh
                 geometry={nodes.Cylinder063_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[1.04, -5.32, 2.85]} rotation={[0, 0, 0.13]}>
               <mesh
                 geometry={nodes.Cylinder064_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-2.98, 1.24, 1.31]}>
               <mesh
                 geometry={nodes.Cylinder065_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-2.98, 1.24, 2.95]}>
               <mesh
                 geometry={nodes.Icosphere113_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[0.8, 3.79, 3.77]} rotation={[0, 0, 0.52]}>
               <mesh
                 geometry={nodes.Cylinder066_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.58, -0.79, 1.32]} rotation={[0, 0, -1.06]}>
               <mesh
                 geometry={nodes.Cylinder067_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.58, -0.79, 2.95]} rotation={[0, 0, -1.06]}>
               <mesh
                 geometry={nodes.Icosphere114_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.35, 3.77, 1.31]} rotation={[0, 0, 2.87]}>
               <mesh
                 geometry={nodes.Cylinder081_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[4.35, 3.72, 2.99]} rotation={[0, 0, 2.87]}>
               <mesh
                 geometry={nodes.Icosphere127_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.Plane009_texture_FINALE002_0.geometry}
               material={materials["texture_FINALE.002"]}
+              receiveShadow
             />
           </group>
           <group
@@ -4139,6 +5140,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.LAMPIONE033_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4148,12 +5151,15 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder076_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[0.79, 0.39, 0]} rotation={[0, 0, -Math.PI / 2]}>
               <mesh
                 geometry={nodes.Plane016_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                receiveShadow
               />
             </group>
             <group
@@ -4163,6 +5169,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder077_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4172,6 +5180,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder078_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4181,12 +5191,16 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.seduta_altalena_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-4.58, -3.91, 0]} rotation={[0, 0, Math.PI / 2]}>
               <mesh
                 geometry={nodes.Cylinder079_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4196,6 +5210,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cylinder080_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4205,18 +5221,24 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.seduta_altalena001_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.14, 3.42, 0.18]}>
               <mesh
                 geometry={nodes.sabbia_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.14, 3.42, 0.18]}>
               <mesh
                 geometry={nodes.sabbiera_texture_FINALE001_0.geometry}
                 material={materials["texture_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4226,17 +5248,22 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.prova2009_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.08, 6.98, -0.01]}>
               <mesh
                 geometry={nodes.Cube062_lowpolytex_0.geometry}
                 material={materials.lowpolytex}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.Plane015_texture001_0.geometry}
               material={materials["texture.001"]}
+              receiveShadow
             />
           </group>
           <group
@@ -4247,14 +5274,17 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Plane002_texture_FINALE001_0.geometry}
               material={materials["texture_FINALE.001"]}
+              receiveShadow
             />
             <mesh
               geometry={nodes.Plane002_strada2_0.geometry}
               material={materials.strada2}
+              receiveShadow
             />
             <mesh
               geometry={nodes.Plane002_texture_FINALE002_0.geometry}
               material={materials["texture_FINALE.002"]}
+              receiveShadow
             />
           </group>
           {/** ----- City Bank Parent Group ----- */}
@@ -4300,243 +5330,324 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.colonna_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group>
             <group position={[-1.9, 1.09, 2.9]}>
               <mesh
                 geometry={nodes.colonna001_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group>
             <group position={[4.53, 1.09, 2.95]}>
               <mesh
                 geometry={nodes.colonna002_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group>
             <group position={[-4.67, 1.09, 2.95]}>
               <mesh
                 geometry={nodes.colonna003_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[0.09, -3.63, 2.95]}>
               <mesh
                 geometry={nodes.VETRI_FINESTRE_VETRI001_0.geometry}
                 material={materials["VETRI.001"]}
+              castShadow
+                
               />
             </group>
             <group position={[0.09, -3.63, 2.95]}>
               <mesh
                 geometry={nodes.VETRI_PORTA_VETRI001_0.geometry}
                 material={materials["VETRI.001"]}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[-0.02, 0.53, 6.38]}>
               <mesh
                 geometry={nodes.Cube048_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group>
             <group position={[2.09, 1.81, 6.54]}>
               <mesh
                 geometry={nodes.Text002_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[0.51, -0.74, 9.73]}>
               <mesh
                 geometry={nodes.Text001_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             <group position={[0, 4.19, -1.61]}>
               <mesh
                 geometry={nodes.Plane003_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                receiveShadow
               />
             </group>
             {/* <group position={[5.72, 1.73, 1.85]}>
               <mesh
                 geometry={nodes.cespugli006_foglie003_0.geometry}
                 material={materials["foglie.003"]}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[5.71, 1.75, 1.34]}>
               <mesh
                 geometry={nodes.piante006_vasi003_0.geometry}
                 material={materials["vasi.003"]}
+              castShadow
+                
               />
               <mesh
                 geometry={nodes.piante006_terra003_0.geometry}
                 material={materials["terra.003"]}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[-5.53, 1.73, 1.85]}>
               <mesh
                 geometry={nodes.cespugli005_foglie003_0.geometry}
                 material={materials["foglie.003"]}
+              castShadow
+                
               />
             </group>
             <group position={[-5.54, 1.75, 1.34]}>
               <mesh
                 geometry={nodes.piante005_vasi003_0.geometry}
                 material={materials["vasi.003"]}
+              castShadow
+                
               />
               <mesh
                 geometry={nodes.piante005_terra003_0.geometry}
                 material={materials["terra.003"]}
+              castShadow
+                
               />
             </group> */}
             <group position={[3.24, 5.94, 0.11]}>
               <mesh
                 geometry={nodes.Cube047_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-2.97, 5.95, 0.11]}>
               <mesh
                 geometry={nodes.Cube046_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[7.91, 5.46, 0.11]}>
               <mesh
                 geometry={nodes.Cube045_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[7.91, 0.15, 0.11]}>
               <mesh
                 geometry={nodes.Cube044_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[7.92, -5.09, 0.11]}>
               <mesh
                 geometry={nodes.Cube043_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-7.93, 5.57, 0.11]}>
               <mesh
                 geometry={nodes.Cube042_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-7.93, 0.26, 0.11]}>
               <mesh
                 geometry={nodes.Cube041_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.47, -7.92, 0.11]}>
               <mesh
                 geometry={nodes.Cube040_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-0.01, -7.92, 0.11]}>
               <mesh
                 geometry={nodes.Cube039_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.46, -7.92, 0.11]}>
               <mesh
                 geometry={nodes.Cube038_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.49, 8.02, 0.19]}>
               <mesh
                 geometry={nodes.Cube037_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-5.58, 8.02, 0.19]}>
               <mesh
                 geometry={nodes.Cube036_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-7.93, -5.04, 0.11]}>
               <mesh
                 geometry={nodes.Cube035_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.39, 8.6, 0.54]}>
               <mesh
                 geometry={nodes.cespugli004_foglie003_0.geometry}
                 material={materials["foglie.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.38, 8.61, 0.05]}>
               <mesh
                 geometry={nodes.piante004_vasi003_0.geometry}
                 material={materials["vasi.003"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.piante004_terra003_0.geometry}
                 material={materials["terra.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-3.11, 8.6, 0.54]}>
               <mesh
                 geometry={nodes.cespugli003_foglie003_0.geometry}
                 material={materials["foglie.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-3.12, 8.61, 0.05]}>
               <mesh
                 geometry={nodes.piante003_vasi003_0.geometry}
                 material={materials["vasi.003"]}
+                castShadow
+                receiveShadow
               />
               <mesh
                 geometry={nodes.piante003_terra003_0.geometry}
                 material={materials["terra.003"]}
+                castShadow
+                receiveShadow
               />
             </group>
             {/* <group position={[0.09, -3.63, 3]}>
               <mesh
                 geometry={nodes.GRADINI_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[0.09, -3.63, 3]}>
               <mesh
                 geometry={nodes.SERRAMENTI_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[0.09, -3.63, 3]}>
               <mesh
                 geometry={nodes.struttura_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[-0.18, 0.77, 6.41]}>
               <mesh
                 geometry={nodes.TETTOIA_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             {/* <group position={[0.09, -3.63, 3]}>
               <mesh
                 geometry={nodes.TETTU_TEXTURE_0.geometry}
                 material={materials.TEXTURE}
+              castShadow
+                
               />
             </group> */}
             {/* ----- Plane Outline mesh copy -----*/}
             <mesh
               geometry={nodes.Plane004_TEXTURE_0.geometry}
               material={materials.TEXTURE}
+              receiveShadow
             />
             {/* ----- Plane Outline mesh copy -----*/}
             <mesh
               geometry={nodes.Plane004_TEXTURE_0.geometry}
               material={materials.TEXTURE}
+              receiveShadow
             />
           </group>
           {/** ----- End:City Bank Parent Group ----- */}
@@ -4549,18 +5660,24 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.Cube051_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.64, -4.59, 5.7]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.TETTO002_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-1.64, -4.59, 5.7]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.VETRI_VETRI_FINALE001_0.geometry}
                 material={materials["VETRI_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4570,66 +5687,88 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.cassetta_tetto001_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.7, 3.55, 5.75]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.Cube050_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.7, 3.55, 5.75]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.TETTO001_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[3.7, 3.55, 5.75]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.VETRI001_VETRI_FINALE001_0.geometry}
                 material={materials["VETRI_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[5.85, 4.2, 11.51]} rotation={[0, 0, Math.PI / 2]}>
               <mesh
                 geometry={nodes.cassetta_tetto002_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-6.32, 3.98, 3.6]}>
               <mesh
                 geometry={nodes.Cube049_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-6.32, 3.98, 3.6]}>
               <mesh
                 geometry={nodes.vetri__VETRI_FINALE001_0.geometry}
                 material={materials["VETRI_FINALE.001"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-6.33, 3.97, 3.6]}>
               <mesh
                 geometry={nodes.tetto004_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-6.32, 3.98, 3.6]}>
               <mesh
                 geometry={nodes.serramenti_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-6.35, 0.42, 4.14]}>
               <mesh
                 geometry={nodes.poggiolo_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-6.35, 7.61, 4.15]} rotation={[0, 0, -Math.PI]}>
               <mesh
                 geometry={nodes.poggiolo001_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4639,6 +5778,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.poggiolo002_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -4648,17 +5789,22 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.poggiolo003_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <group position={[-4.81, 5.78, 7.11]}>
               <mesh
                 geometry={nodes.cassetta_tetto_texture_FINALE002_0.geometry}
                 material={materials["texture_FINALE.002"]}
+                castShadow
+                receiveShadow
               />
             </group>
             <mesh
               geometry={nodes.Plane005_texture_FINALE002_0.geometry}
               material={materials["texture_FINALE.002"]}
+              receiveShadow
             />
           </group>
           <group
@@ -4669,6 +5815,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder009_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4679,6 +5827,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder010_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4689,6 +5839,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder011_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4699,6 +5851,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere068_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4709,6 +5863,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder012_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4719,6 +5875,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere069_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4729,6 +5887,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder013_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4739,6 +5899,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere070_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4749,6 +5911,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder014_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4759,6 +5923,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder015_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4769,6 +5935,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder016_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4779,6 +5947,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere071_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4789,6 +5959,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder017_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4799,6 +5971,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder018_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4809,6 +5983,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder019_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4819,6 +5995,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere072_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4829,6 +6007,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder020_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4839,6 +6019,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere073_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4849,6 +6031,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder021_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4859,6 +6043,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder022_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4869,6 +6055,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder023_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4879,6 +6067,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere074_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4889,6 +6079,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder024_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4899,6 +6091,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder025_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4909,6 +6103,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere075_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4919,6 +6115,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube052_TEXTURE_0.geometry}
               material={materials.TEXTURE}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4929,6 +6127,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube053_TEXTURE_0.geometry}
               material={materials.TEXTURE}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4939,6 +6139,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube054_TEXTURE_0.geometry}
               material={materials.TEXTURE}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4949,6 +6151,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder048_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4959,6 +6163,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder049_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4969,6 +6175,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder050_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4979,6 +6187,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder068_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4989,6 +6199,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere115_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -4999,6 +6211,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere116_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5009,6 +6223,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere117_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5019,6 +6235,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere118_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5029,6 +6247,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.abete001_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5039,6 +6259,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.prova2001_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5049,6 +6271,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.prova2005_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5059,6 +6283,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.prova2006_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5069,6 +6295,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.prova2007_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5079,6 +6307,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.prova2008_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5089,6 +6319,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube060_TEXTURE_0.geometry}
               material={materials.TEXTURE}
+              castShadow
+              receiveShadow
             />
           </group>
           {/*--------- Bus Group--------- */}
@@ -5101,6 +6333,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.bus_bus_0.geometry}
                 material={materials.material}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -5111,6 +6345,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.cubi_tetto001_bus_0.geometry}
                 material={materials.material}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -5121,6 +6357,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.luci_posteriori_bus_0.geometry}
                 material={materials.material}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -5131,6 +6369,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.RUOTE_ANTERIORI_bus_0.geometry}
                 material={materials.material}
+                castShadow
+                receiveShadow
               />
             </group>
             <group
@@ -5141,6 +6381,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.RUOTE_POSTERIORI_bus_0.geometry}
                 material={materials.material}
+                castShadow
+                receiveShadow
               />
             </group>
           </group>
@@ -5153,10 +6395,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.stop_TEXTURE_FINALE_0.geometry}
               material={materials.TEXTURE_FINALE}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.stop_texture003_0.geometry}
               material={materials["texture.003"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5167,6 +6413,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.bicchieri_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5177,10 +6425,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.gelatii_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.gelatii_rosa_gelato_0.geometry}
               material={materials.rosa_gelato}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5191,6 +6443,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.mensole_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5201,6 +6455,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.piatti_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5211,6 +6467,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.sedili_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5221,6 +6479,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.volante_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5231,6 +6491,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder069_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5241,6 +6503,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere122_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5251,6 +6515,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere121_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5261,6 +6527,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere120_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5271,6 +6539,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere119_pallina_gelato_0.geometry}
               material={materials.pallina_gelato}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5281,6 +6551,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.camion_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5291,6 +6563,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.finestrini_finestrini_0.geometry}
               material={materials.finestrini}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5301,6 +6575,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.grata_muso_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5311,6 +6587,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.lato_camion_insegna001_0.geometry}
               material={materials["insegna.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5321,6 +6599,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote_anteriori_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5331,6 +6611,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote_posteriori_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5341,6 +6623,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.sbarra_tenda_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5351,10 +6635,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.tenda_frontale005_viola_0.geometry}
               material={materials.viola}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.tenda_frontale005_camion_0.geometry}
               material={materials.camion}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5365,9 +6653,11 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
-          <group
+          {/* <group
             position={[3010.23, 557.5, -2599.02]}
             rotation={[0, 0, -Math.PI / 2]}
             scale={100}
@@ -5375,8 +6665,9 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote_texture004_0.geometry}
               material={materials["texture.004"]}
-            />
-          </group>
+              castShadow
+              receiveShadow />
+          </group> */}
           <group
             position={[3176.04, 592.31, -2663.92]}
             rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
@@ -5385,6 +6676,7 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Plane010_texture004_0.geometry}
               material={materials["texture.004"]}
+              receiveShadow
             />
           </group>
           <group
@@ -5395,6 +6687,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.barre_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5405,6 +6699,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina001_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5415,6 +6711,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote001_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5425,6 +6723,7 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Plane013_texture004_0.geometry}
               material={materials["texture.004"]}
+              receiveShadow
             />
           </group>
           <group
@@ -5435,6 +6734,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina002_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5445,6 +6746,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote002_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           {/*--------- Blue car near bank -------- */}
@@ -5456,12 +6759,15 @@ export default function City({ ...props }) {
           {/* <mesh>
             <group
               position={[2030.32, 553.72, 2509.66]}
-              rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
+           castShadow   rot
+              ation={[-Math.PI / 2, 0, -Math.PI / 2]}
               scale={100}
             >
               <mesh
                 geometry={nodes.macchina003_texture004_0.geometry}
                 material={materials["texture.004"]}
+              castShadow
+                
               />
             </group>
             <group
@@ -5472,6 +6778,8 @@ export default function City({ ...props }) {
               <mesh
                 geometry={nodes.ruote003_texture004_0.geometry}
                 material={materials["texture.004"]}
+              castShadow
+                
               />
             </group>
           </mesh> */}
@@ -5484,6 +6792,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina004_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5494,6 +6804,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote004_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5504,6 +6816,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina005_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5514,6 +6828,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote005_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5524,6 +6840,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina006_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5534,6 +6852,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote006_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5544,6 +6864,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina007_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5554,6 +6876,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote007_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5564,6 +6888,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.macchina008_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5574,6 +6900,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.ruote008_texture004_0.geometry}
               material={materials["texture.004"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5584,6 +6912,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE013_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5594,6 +6924,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE020_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5604,6 +6936,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE024_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5614,6 +6948,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE008_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5624,6 +6960,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE014_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5634,6 +6972,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE031_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5644,6 +6984,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE015_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5654,6 +6996,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE032_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5664,6 +7008,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE027_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5674,6 +7020,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE021_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5684,6 +7032,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE022_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5694,6 +7044,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE023_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5704,6 +7056,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE025_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5714,6 +7068,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE026_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5724,6 +7080,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE019_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5734,6 +7092,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE018_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5744,6 +7104,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE017_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5754,6 +7116,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE016_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5764,6 +7128,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE012_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5774,6 +7140,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE034_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5784,6 +7152,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE035_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5794,6 +7164,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.LAMPIONE036_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5804,6 +7176,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube009_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5814,6 +7188,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube064_lowpolytex_0.geometry}
               material={materials.lowpolytex}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5824,10 +7200,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.parcheggio_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.parcheggio_SEGNALE_PARCHEGGIO_0.geometry}
               material={materials.SEGNALE_PARCHEGGIO}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5838,14 +7218,20 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.stop001_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.stop001_texture005_0.geometry}
               material={materials["texture.005"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.stop001_grigio_scuro001_0.geometry}
               material={materials["grigio_scuro.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5856,10 +7242,14 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.stop002_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
             <mesh
               geometry={nodes.stop002_texture005_0.geometry}
               material={materials["texture.005"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5870,6 +7260,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube068_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5880,6 +7272,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube067_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5890,6 +7284,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube066_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5900,6 +7296,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube065_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5910,6 +7308,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder085_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5920,6 +7320,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder084_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5930,6 +7332,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder083_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5940,6 +7344,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder082_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5950,6 +7356,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cube069_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5960,6 +7368,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Cylinder086_color_0.geometry}
               material={materials.color}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5970,6 +7380,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere128_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5980,6 +7392,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere129_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -5990,6 +7404,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere130_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6000,6 +7416,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere131_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6010,6 +7428,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere132_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6020,6 +7440,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere133_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6030,6 +7452,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere134_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6040,6 +7464,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere135_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6050,6 +7476,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere136_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6060,6 +7488,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere137_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6070,18 +7500,24 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere138_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
             <mesh
               geometry={nodes.Icosphere139_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
             <mesh
               geometry={nodes.Icosphere140_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6092,6 +7528,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere141_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6102,6 +7540,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere142_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6112,6 +7552,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere143_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6122,6 +7564,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere144_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6132,6 +7576,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere145_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6142,6 +7588,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere146_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6152,6 +7600,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere147_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6162,6 +7612,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere148_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6172,6 +7624,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere149_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6182,6 +7636,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere150_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6192,6 +7648,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere151_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6202,6 +7660,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere152_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6212,6 +7672,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere153_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6222,6 +7684,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere154_TEXTURE_FINALE001_0.geometry}
               material={materials["TEXTURE_FINALE.001"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6232,6 +7696,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere156_TEXTURE_FINALE002_0.geometry}
               material={materials["TEXTURE_FINALE.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6242,6 +7708,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere159_TEXTURE_FINALE002_0.geometry}
               material={materials["TEXTURE_FINALE.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6252,6 +7720,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere160_TEXTURE_FINALE002_0.geometry}
               material={materials["TEXTURE_FINALE.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6262,6 +7732,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere158_TEXTURE_FINALE002_0.geometry}
               material={materials["TEXTURE_FINALE.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6272,6 +7744,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere087_TEXTURE_FINALE002_0.geometry}
               material={materials["TEXTURE_FINALE.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
           <group
@@ -6282,6 +7756,8 @@ export default function City({ ...props }) {
             <mesh
               geometry={nodes.Icosphere088_TEXTURE_FINALE002_0.geometry}
               material={materials["TEXTURE_FINALE.002"]}
+              castShadow
+              receiveShadow
             />
           </group>
         </group>

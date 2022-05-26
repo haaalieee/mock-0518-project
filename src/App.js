@@ -1,40 +1,82 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Loader } from "@react-three/drei";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { SpotLightHelper } from "three";
+import { Loader, useHelper } from "@react-three/drei";
 import City from "./components/City";
+// import Toureast from "./components/Toureast";
+import Toureasttest from "./components/Toureasttest";
 import Rig from "./components/Rig";
 import { CityProvider } from "./context/CityContext";
 import CameraControl from "./utils/CameraControl";
 import "./styles.css";
+import Waterfall from "./components/Waterfall";
+import Oasis from "./components/Oasis";
 
-// extend({ OrbitControls });
+// import {
+//   EffectComposer,
+//   DepthOfField,
+//   Vignette,
+// } from "@react-three/postprocessing";
 
-// const Controls = () => {
-//   const { camera, gl } = useThree();
-//   const ref = useRef();
-//   const { clickedCity } = useCity();
+function Scene() {
+  const spLight = useRef();
+  const spTreeLight = useRef();
+  // useHelper(spTreeLight, SpotLightHelper, "teal");
+  // useHelper(spLight, SpotLightHelper, "teal");
 
-//   useFrame(() => {
-//     ref.current.update();
-
-//     if (clickedCity) {
-//       ref.current.update();
-//     }
-//   });
-//   return (
-//     <orbitControls
-//       ref={ref}
-//       target={[0, 0, 0]}
-//       enableDamping
-//       args={[camera, gl.domElement]}
-//     />
-//   );
-// };
+  return (
+    <>
+      <color attach="background" args={["#c0dbe9"]} />
+      {/* <fog attach="fog" args={['#c0dbe9', 10, 150]} /> */}
+      <ambientLight intensity={2} />
+      <spotLight
+        ref={spLight}
+        position={[40, 160, -20]}
+        intensity={5}
+        distance={200}
+        angle={0.5}
+        penumbra={1}
+        castShadow
+        color="white"
+      />
+      <spotLight
+        ref={spTreeLight}
+        position={[40, 200, 180]}
+        intensity={5}
+        distance={300}
+        angle={0.5}
+        castShadow
+        color="white"
+      />
+      <CityProvider>
+        <Suspense fallback={null}>
+          <Rig>
+            <group position={[-7.5, -4.68, 4]}>
+              <Waterfall />
+            </group>
+            <City
+              rotation={[0, 1.56, 0]}
+              scale={[0.01, 0.01, 0.01]}
+              position={[10, -10, 20]}
+            />
+          </Rig>
+        </Suspense>
+        <CameraControl />
+        {/* <OrbitControls
+          enablePan={false}
+          enableZoom={true}
+          maxPolarAngle={0.9}
+          minPolarAngle={0.9}
+          enableDamping={true}
+        /> */}
+        <Oasis position={[10,30,-55]} scale={2} rotation={[0,2.9,0]}/>
+        <Toureasttest scale={0.06} position={[30, 20, 100]} />
+      </CityProvider>
+    </>
+  );
+}
 
 function App() {
-  const [zoom, setZoom] = useState(false);
-  const [focus, setFocus] = useState({});
   return (
     <>
       <Canvas
@@ -42,29 +84,7 @@ function App() {
         camera={{ position: [-27, 27, 4], fov: 70 }}
         shadows={true}
       >
-        <CityProvider>
-          <color attach="background" args={["#c0dbe9"]} />
-          {/* <fog attach="fog" args={['#fffff', 10, 60]} /> */}
-          <ambientLight intensity={4} />
-          <Suspense fallback={null}>
-            <Rig>
-              <City
-                rotation={[0, 1.56, 0]}
-                scale={[0.01, 0.01, 0.01]}
-                position={[10, -10, 20]}
-              />
-            </Rig>
-          </Suspense>
-          <CameraControl />
-          {/* <Controls /> */}
-          {/* <OrbitControls
-          enablePan={false}
-          enableZoom={true}
-          maxPolarAngle={0.9}
-          minPolarAngle={0.9}
-          enableDamping={true}
-        /> */}
-        </CityProvider>
+        <Scene />
       </Canvas>
       <Loader />
     </>

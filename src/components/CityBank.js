@@ -61,12 +61,12 @@ export default function CityBank(props) {
         onClick={(e) => {
           e.stopPropagation();
           toggleClickedCity();
-          setObjectPosition(
-            cityBankRef.current.position.x + 40,
-            cityBankRef.current.position.y,
-            cityBankRef.current.position.z + 5
-          );
-          toggleCarDialog();
+          // setObjectPosition(
+          //   cityBankRef.current.position.x + 40,
+          //   cityBankRef.current.position.y,
+          //   cityBankRef.current.position.z + 5
+          // );
+          // toggleCarDialog();
         }}
         position-z={clickedCity ? floatPosZExit : floatPosZ}
       >
@@ -80,116 +80,156 @@ export default function CityBank(props) {
           <mesh
             geometry={props.geometryColonna0}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[-1.9, 1.09, 2.9]}>
           <mesh
             geometry={props.geometryColonna001}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[4.53, 1.09, 2.95]}>
           <mesh
             geometry={props.geometryColonna002}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[-4.67, 1.09, 2.95]}>
           <mesh
             geometry={props.geometryColonna003}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[0.09, -3.63, 2.95]}>
           <mesh
             geometry={props.geometryVetriFinestre001}
             material={props.materialsVetri001}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[0.09, -3.63, 2.95]}>
           <mesh
             geometry={props.geometryVetriPorta001}
             material={props.materialsVetri001}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[-0.02, 0.53, 6.38]}>
           <mesh
             geometry={props.geometryCube048}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[2.09, 1.81, 6.54]}>
           <mesh
             geometry={props.geometryText002}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[0.51, -0.74, 9.73]}>
           <mesh
             geometry={props.geometryText001}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[5.72, 1.73, 1.85]}>
           <mesh
             geometry={props.geometryCespugli006Foglie003}
             material={props.materialsFoglie003}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[5.71, 1.75, 1.34]}>
           <mesh
             geometry={props.geometryPiante006Vasi003}
             material={props.materialsVasi003}
+            castShadow
+            receiveShadow
           />
           <mesh
             geometry={props.geometryPiante006Terra003}
             material={props.materialsTerra003}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[-5.53, 1.73, 1.85]}>
           <mesh
             geometry={props.geometryCespugli005Foglie003}
             material={props.materialsFoglie003}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[-5.54, 1.75, 1.34]}>
           <mesh
             geometry={props.geometryPiante005Vasi003}
             material={props.materialsVasi003}
+            castShadow
+            receiveShadow
           />
           <mesh
             geometry={props.geometryPiante005Terra003}
             material={props.materialsTerra003}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[0.09, -3.63, 3]}>
           <mesh
             geometry={props.geometryGradini}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[0.09, -3.63, 3]}>
           <mesh
             geometry={props.geometrySerramenti}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[0.09, -3.63, 3]}>
           <mesh
             geometry={props.geometryStruttura}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[-0.18, 0.77, 6.41]}>
           <mesh
             geometry={props.geometryTettioia}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
         <group position={[0.09, -3.63, 3]}>
           <mesh
             geometry={props.geometryTettu}
             material={props.materialsTexture}
+            castShadow
+            receiveShadow
           />
         </group>
       </a.group>

@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { Html } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
 import { useCity } from "../context/CityContext";
 import { useCityUpdate } from "../context/CityContext";
@@ -54,7 +55,7 @@ const Dialog = forwardRef((props, ref) => {
           opacity: 0,
         },
         {
-          delay: 0.3,
+          delay: 0.5,
           y: 0,
           duration: 0.8,
           opacity: 1,
@@ -143,6 +144,7 @@ const Dialog = forwardRef((props, ref) => {
             <p className="dialog-anim dialog-header">{header}</p>
             <h2 className="dialog-anim">{title}</h2>
             <p className="dialog-anim">{content}</p>
+            <button className="btn-dialog dialog-anim"><p className="dialog-anim">Next</p></button>
           </div>
         </animated.div>
       </Html>
